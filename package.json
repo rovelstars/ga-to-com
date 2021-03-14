@@ -1,0 +1,16 @@
+{
+  "name": "gatocom",
+  "description": "ga to com",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "^15.x"
+  },
+  "dependencies": {
+    "helmet": "4.4.1",
+    "express-rate-limit": "5.2.6",
+    "express": "4.17.1"
+  }
+}
