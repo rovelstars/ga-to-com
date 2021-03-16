@@ -2,18 +2,28 @@ const express = require("express");
 var app = express();
 
 var domain = function(req, res) {
- if (req.hostname == "bots.rovelstars.ga") res.redirect(301, `https://discord.rovelstars.com${req.path}`);
-
- if (req.hostname == "rovelstars.ga") res.redirect(301, `https://docs.rovelstars.com${req.path}`);
-
- if (req.hostname == "paste.rovelstars.ga") res.redirect(301, `https://paste.rovelstars.com${req.path}`);
-
- if(req.hostname=="api.rovelstars.ga") res.redirect(301, `https://api.rovelstars.com${req.path}`);
-
- if(req.hostname=="blog.rovelstars.ga") res.redirect(301, `https://blog.rovelstars.com${req.path}`);
-
+ if (req.hostname == "bots.rovelstars.ga"){
+  res.set("location", `https://discord.rovelstars.com${req.path}`);
+  res.status(301).send();
+}
+ if (req.hostname == "rovelstars.ga"){
+  res.set("location", `https://docs.rovelstars.com${req.path}`);
+  res.status(301).send();
+}
+ if (req.hostname == "paste.rovelstars.ga"){
+ res.set("location", `https://paste.rovelstars.com${req.path}`);
+ res.status(301).send();
+}
+ if(req.hostname=="api.rovelstars.ga"){
+  res.set("location", `https://api.rovelstars.com${req.path}`);
+  res.status(301).send();
+}
+ if(req.hostname=="blog.rovelstars.ga"){
+  res.set("location", `https://blog.rovelstars.com${req.path}`);
+  res.status(301).send();
+}
  else{
-  res.send(404, "Are you the one that was lost in space?");
+  res.status(404).send("Are you the one that was lost in space?");
  }
 }
 app.use(domain);
