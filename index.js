@@ -6,6 +6,10 @@ var domain = function(req, res) {
   res.set("location", `https://discord.rovelstars.com${req.path}`);
   res.status(301).send();
 }
+if (req.hostname == "rovelstars.com"){
+  res.set("location", `https://discord.rovelstars.com${req.path}`);
+  res.status(301).send();
+}
  if (req.hostname == "rovelstars.ga"){
   res.set("location", `https://docs.rovelstars.com${req.path}`);
   res.status(301).send();
